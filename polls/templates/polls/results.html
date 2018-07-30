@@ -1,0 +1,11 @@
+<a href="{% url 'polls:detail' question.id %}"><h1>{{ question.question_text }}</h1></a>
+
+{% if error_message %}<p>
+  <strong>error_message</strong>
+</p>{% endif %}
+
+{% for choice in question.choice_set.all %}
+  <p>{{ choice.choice_text }} <strong>{{ choice.votes }}</strong></p><br>
+{% endfor %}
+
+<a href="{% url 'polls:index' %}"><strong>back</strong></a>
