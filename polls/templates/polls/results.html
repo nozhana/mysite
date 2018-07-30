@@ -5,7 +5,7 @@
 </p>{% endif %}
 
 {% for choice in question.choice_set.all %}
-  <p>{{ choice.choice_text }} <strong>{{ choice.votes }}</strong></p><br>
+  <p>{{ choice.choice_text }}        <strong>{{ choice.votes }}</strong></p><br>
 {% endfor %}
 
 <a href="{% url 'polls:index' %}"><strong>back</strong></a>
