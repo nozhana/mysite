@@ -16,3 +16,11 @@ class QuestionModelTests(TestCase):
         future_q = Question(pub_date=time)
         self.assertIs(future_q.was_published_recently(), False,
             'Question is in future!')
+
+def create_question(question_text, days):
+    '''
+    Create question with 'question_text' and timezone.now() + 'days'
+    (positive value for questions in future, negative for questions in past)
+    '''
+    time = timezone.now() + datetime.timedelta(days=days)
+    return Question.objects.create(question_text=question_text, pub_date=time)
